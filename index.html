@@ -33,3 +33,21 @@
       <h2 class="text-lg font-semibold text-gray-700">Available Jobs</h2>
       <p id="filter-count" class="text-sm text-gray-500"></p>
     </div>
+     <!-- Filters -->
+    <div class="flex gap-3 mb-6">
+      <button id="btn-all" onclick="filterJobs('all')" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm">All</button>
+      <button id="btn-interview" onclick="filterJobs('interview')" class="px-4 py-2 bg-gray-200 rounded-lg text-sm">Interview</button>
+      <button id="btn-rejected" onclick="filterJobs('rejected')" class="px-4 py-2 bg-gray-200 rounded-lg text-sm">Rejected</button>
+    </div>
+
+    <!-- Jobs -->
+    <div id="job-list" class="space-y-6"></div>
+
+    <!-- No Jobs -->
+    <div id="no-jobs" class="hidden text-center mt-10">
+     <img src="./jobs.png" 
+       class="mx-auto mb-4 opacity-80">
+        <p class="text-xl text-gray-700">No jobs available</p>
+    </div>
+
+  </div>
