@@ -55,4 +55,25 @@ function renderJobs() {
   if (currentFilter !== "all") {
     filtered = jobs.filter(j => j.status === currentFilter);
   }
-  
+   filterCount.innerText = `${filtered.length} of ${jobs.length} jobs`;
+
+  if (filtered.length === 0) {
+    noJobs.classList.remove("hidden");
+  } else {
+    noJobs.classList.add("hidden");
+  }
+
+  filtered.forEach(job => {
+
+    let badge = "";
+    let border = "border-l-4 border-transparent";
+
+    if (job.status === "interview") {
+      badge = `<span class="inline-block mb-3 px-3 py-1 text-xs bg-green-100 text-green-600 rounded">INTERVIEW</span>`;
+      border = "border-l-4 border-green-500";
+    }
+
+    if (job.status === "rejected") {
+      badge = `<span class="inline-block mb-3 px-3 py-1 text-xs bg-red-100 text-red-600 rounded">REJECTED</span>`;
+      border = "border-l-4 border-red-500";
+    }
