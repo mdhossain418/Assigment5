@@ -77,3 +77,42 @@ function renderJobs() {
       badge = `<span class="inline-block mb-3 px-3 py-1 text-xs bg-red-100 text-red-600 rounded">REJECTED</span>`;
       border = "border-l-4 border-red-500";
     }
+     list.innerHTML += `
+      <div class="bg-white text-gray-800 p-6 rounded-xl shadow relative ${border}">
+
+        <!-- ICON DELETE BUTTON -->
+        <button onclick="deleteJob(${job.id})"
+          class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-lg border border-gray-300 hover:bg-red-500 hover:border-red-500 hover:text-white transition">
+          🗑
+        </button>
+
+        <h2 class="text-lg font-semibold">${job.company}</h2>
+        <p class="text-sm text-gray-500">${job.title}</p>
+        <p class="text-sm text-gray-400 mb-3">${job.location} • ${job.salary}</p>
+
+        ${badge}
+
+        <p class="text-sm text-gray-600 mt-2">
+          Build cross-platform applications using modern technologies.
+        </p>
+
+        <div class="flex gap-3 mt-5">
+          <button
+            onclick="changeStatus(${job.id}, 'interview')"
+            class="px-4 py-1 text-sm border border-green-500 text-green-500 rounded hover:bg-green-500 hover:text-white">
+            INTERVIEW
+          </button>
+
+          <button
+            onclick="changeStatus(${job.id}, 'rejected')"
+            class="px-4 py-1 text-sm border border-red-500 text-red-500 rounded hover:bg-red-500 hover:text-white">
+            REJECTED
+          </button>
+        </div>
+      </div>
+    `;
+  });
+}
+
+updateCounters();
+renderJobs();
