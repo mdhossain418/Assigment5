@@ -55,7 +55,7 @@ function renderJobs() {
   if (currentFilter !== "all") {
     filtered = jobs.filter(j => j.status === currentFilter);
   }
-   filterCount.innerText = `${filtered.length} of ${jobs.length} jobs`;
+   filterCount.innerText = `${jobs.length} jobs`;
 
   if (filtered.length === 0) {
     noJobs.classList.remove("hidden");
