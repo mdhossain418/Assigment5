@@ -16,3 +16,24 @@ function updateCounters() {
   document.getElementById("interview-count").innerText = jobs.filter(j=>j.status==="interview").length;
   document.getElementById("rejected-count").innerText = jobs.filter(j=>j.status==="rejected").length;
 }
+function setActive(btnId) {
+  ["btn-all","btn-interview","btn-rejected"].forEach(id=>{
+    document.getElementById(id).className =
+      "px-4 py-2 bg-gray-200 rounded-lg text-sm";
+  });
+  document.getElementById(btnId).className =
+    "px-4 py-2 bg-blue-600 text-white rounded-lg text-sm";
+}
+
+function filterJobs(type) {
+  currentFilter = type;
+  setActive("btn-"+type);
+  renderJobs();
+}
+
+function changeStatus(id, status) {
+  const job = jobs.find(j=>j.id===id);
+  job.status = status;
+  updateCounters();
+  renderJobs();
+}
