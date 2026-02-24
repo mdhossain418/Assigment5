@@ -37,3 +37,22 @@ function changeStatus(id, status) {
   updateCounters();
   renderJobs();
 }
+/* DELETE FUNCTION */
+function deleteJob(id) {
+  jobs = jobs.filter(j => j.id !== id);
+  updateCounters();
+  renderJobs();
+}
+
+function renderJobs() {
+  const list = document.getElementById("job-list");
+  const noJobs = document.getElementById("no-jobs");
+  const filterCount = document.getElementById("filter-count");
+
+  list.innerHTML = "";
+
+  let filtered = jobs;
+  if (currentFilter !== "all") {
+    filtered = jobs.filter(j => j.status === currentFilter);
+  }
+  
